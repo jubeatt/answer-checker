@@ -4,7 +4,7 @@
 
 ![screenshot](screenshot.png)
 
-Answer Checker 是一個幫助你快速對答案的線上服務，包含：
+Answer Checker 是一個幫你快速對答案的線上服務，有下面幾個特色：
 
 - 支援跨平台使用（手機、瀏覽器）
 - 快速上手的操作介面（快速填入答案及拖拉調整）
