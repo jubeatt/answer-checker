@@ -187,7 +187,7 @@ function App() {
       <footer>
         © 2023{' '}
         <a
-          href='https://github.com/jubeatt/'
+          href='https://github.com/jubeatt/answer-checker'
           target='_blank'
           referrerPolicy='no-referrer'
         >
