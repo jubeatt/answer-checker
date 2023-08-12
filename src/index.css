@@ -33,6 +33,17 @@ body {
   font-family: 'Prompt', sans-serif;
 }
 
+footer {
+  font-size: 0.8rem;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+}
+
+footer a {
+  color: var(--secondary);
+}
+
 h2 {
   font-size: 1.5rem;
 }
@@ -61,6 +72,7 @@ h2 {
 .wrapper {
   width: 90%;
   max-width: 1440px;
+  min-height: calc(100vh - 30px);
   margin: auto;
   padding: 20px;
 }

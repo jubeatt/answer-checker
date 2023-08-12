@@ -95,94 +95,107 @@ function App() {
   const invalidAmount = userAnswer.length !== theAnswer.length
 
   return (
-    <div className='wrapper'>
-      <h1>
-        <span className='logo'>A</span>nswer Checker
-      </h1>
-      <ConfigProvider
-        theme={{
-          token: {
-            colorPrimary: '#00a9ce'
-          }
-        }}
-      >
-        <div className='mt-30 mb-20'>
-          {invalidAmount ? (
-            <Tooltip
-              arrow={false}
-              title='Invalid Input. Please ensure that the quantity of both answers is the same.'
-            >
+    <>
+      <div className='wrapper'>
+        <h1>
+          <span className='logo'>A</span>nswer Checker
+        </h1>
+        <ConfigProvider
+          theme={{
+            token: {
+              colorPrimary: '#00a9ce'
+            }
+          }}
+        >
+          <div className='mt-30 mb-20'>
+            {invalidAmount ? (
+              <Tooltip
+                arrow={false}
+                title='Invalid Input. Please ensure that the quantity of both answers is the same.'
+              >
+                <Button
+                  className='check-btn'
+                  type='primary'
+                  disabled
+                >
+                  Check
+                </Button>
+              </Tooltip>
+            ) : (
               <Button
                 className='check-btn'
                 type='primary'
-                disabled
+                onClick={handleCheckBtn}
               >
                 Check
               </Button>
-            </Tooltip>
-          ) : (
+            )}
             <Button
-              className='check-btn'
+              className='check-btn ml-10'
               type='primary'
-              onClick={handleCheckBtn}
+              onClick={handleReset}
             >
-              Check
+              Reset
             </Button>
-          )}
-          <Button
-            className='check-btn ml-10'
-            type='primary'
-            onClick={handleReset}
+          </div>
+        </ConfigProvider>
+        <Row gutter={[40, 40]}>
+          {/* User Answer */}
+          <Col
+            span={24}
+            md={12}
           >
-            Reset
-          </Button>
-        </div>
-      </ConfigProvider>
-      <Row gutter={[40, 40]}>
-        {/* User Answer */}
-        <Col
-          span={24}
-          md={12}
-        >
-          {
+            {
+              <AnswerBox
+                title='Your Answer'
+                type={AnswerType.userAnswer}
+                data={userAnswer}
+                canDrag={isEdit.userAnswer}
+                onAddAnswer={handleAddAnswer}
+                onEditAnswer={handleEditButton}
+                onDataDelete={handleDelete}
+                onDataChange={setUserAnswer}
+              />
+            }
+          </Col>
+          {/* The Answer */}
+          <Col
+            span={24}
+            md={12}
+          >
             <AnswerBox
-              title='Your Answer'
-              type={AnswerType.userAnswer}
-              data={userAnswer}
-              canDrag={isEdit.userAnswer}
+              title='The Answer'
+              type={AnswerType.theAnswer}
+              data={theAnswer}
+              canDrag={isEdit.theAnswer}
               onAddAnswer={handleAddAnswer}
               onEditAnswer={handleEditButton}
               onDataDelete={handleDelete}
-              onDataChange={setUserAnswer}
+              onDataChange={setTheAnswer}
             />
-          }
-        </Col>
-        {/* The Answer */}
-        <Col
-          span={24}
-          md={12}
-        >
-          <AnswerBox
-            title='The Answer'
-            type={AnswerType.theAnswer}
-            data={theAnswer}
-            canDrag={isEdit.theAnswer}
-            onAddAnswer={handleAddAnswer}
-            onEditAnswer={handleEditButton}
-            onDataDelete={handleDelete}
-            onDataChange={setTheAnswer}
+          </Col>
+        </Row>
+        {/* Result */}
+        {showResult && (
+          <ResultList
+            userAnswer={userAnswer}
+            theAnswer={theAnswer}
+            onTryAgain={handleReset}
           />
-        </Col>
-      </Row>
-      {/* Result */}
-      {showResult && (
-        <ResultList
-          userAnswer={userAnswer}
-          theAnswer={theAnswer}
-          onTryAgain={handleReset}
-        />
-      )}
-    </div>
+        )}
+      </div>
+      <footer>
+        © 2023{' '}
+        <a
+          href='https://github.com/jubeatt/'
+          target='_blank'
+          referrerPolicy='no-referrer'
+        >
+          PeaNu
+        </a>
+        . All Rights Reserved.
+      </footer>
+    </>
   )
 }
 
