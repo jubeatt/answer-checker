@@ -1,27 +1,42 @@
-# React + TypeScript + Vite
+# Answer Checker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
 
-Currently, two official plugins are available:
+![screenshot](screenshot.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Answer Checker 是一個幫助你快速對答案的線上服務，包含：
 
-## Expanding the ESLint configuration
+- 支援跨平台使用（手機、瀏覽器）
+- 快速上手的操作介面（快速填入答案及拖拉調整）
+- 明確的分析結果（告訴你正確及錯誤的數量、錯誤題數以及正確解答）
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+網站連結：[https://jubeatt.github.io/answer-checker/](https://jubeatt.github.io/answer-checker/)
 
-- Configure the top-level `parserOptions` property like this:
+## Development
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
+- Node Version: v14.21.2
+- React v17
+- Ant Design v5
+- lodash
+- sortablejs
+- uuid
+
+1\. install dependencies
+
+```bash
+npm ci
+# or
+npm install
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+2\. run dev server
+
+```bash
+npm run dev
+```
+
+3\. deploy to github
+
+```
+npm run deploy
+```
